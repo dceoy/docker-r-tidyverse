@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  r-dev:
-    container_name: r-dev
+  r-tidyverse:
+    container_name: r-tidyverse
     build:
       context: .
-    image: dceoy/r-dev:latest
+    image: dceoy/r-tidyverse:latest

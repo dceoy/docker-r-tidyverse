@@ -1,19 +1,19 @@
-docker-r-dev
-============
+docker-r-tidyverse
+==================
 
 Dockerfile for R with tidyverse
 
 Docker image
 ------------
 
-Pull the image from [Docker Hub](https://hub.docker.com/r/dceoy/r-dev/).
+Pull the image from [Docker Hub](https://hub.docker.com/r/dceoy/r-tidyverse/).
 
 ```sh
-$ docker pull dceoy/r-dev
+$ docker pull dceoy/r-tidyverse
 ```
 
 Run a container
 
 ```sh
-$ docker container run dceoy/r-dev --version
+$ docker container run dceoy/r-tidyverse --version
 ```
