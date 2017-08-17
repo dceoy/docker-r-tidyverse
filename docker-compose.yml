@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  r-dev:
+    container_name: r-dev
+    build:
+      context: .
+    image: dceoy/r-dev:latest
