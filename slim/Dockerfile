@@ -1,15 +1,15 @@
 FROM r-base
 
+ENV CRAN_URL https://cloud.r-project.org/
+
 RUN set -e \
       && ln -sf /bin/bash /bin/sh
 
 RUN set -e \
       && apt-get -y update \
       && apt-get -y upgrade \
-      && apt-get -y install git libcurl4-gnutls-dev libssl-dev libxml2-dev \
+      && apt-get -y install libcurl4-gnutls-dev libssl-dev libxml2-dev \
       && apt-get clean
-
-ENV CRAN_URL https://cloud.r-project.org/
 
 RUN set -e \
       && R -e "\

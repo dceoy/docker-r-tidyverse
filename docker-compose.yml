@@ -4,5 +4,5 @@ services:
   r-tidyverse:
     container_name: r-tidyverse
     build:
-      context: .
+      context: latest
     image: dceoy/r-tidyverse:latest

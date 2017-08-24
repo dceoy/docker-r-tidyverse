@@ -1,0 +1,21 @@
+FROM r-base
+
+ENV CRAN_URL https://cloud.r-project.org/
+
+RUN set -e \
+      && ln -sf /bin/bash /bin/sh
+
+RUN set -e \
+      && apt-get -y update \
+      && apt-get -y upgrade \
+      && apt-get -y install curl git libcurl4-gnutls-dev libmariadb-client-lgpl-dev libpq-dev libsqlite3-dev libssl-dev libxml2-dev \
+      && apt-get clean
+
+RUN set -e \
+      && R -e "\
+      update.packages(ask = FALSE, repos = '${CRAN_URL}'); \
+      pkgs <- c('dbplyr', 'devtools', 'docopt', 'doParallel', 'foreach', 'gridExtra', 'tidyverse'); \
+      install.packages(pkgs = pkgs, dependencies = TRUE, repos = '${CRAN_URL}'); \
+      sapply(pkgs, require, character.only = TRUE);"
+
+ENTRYPOINT ["R"]
