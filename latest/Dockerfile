@@ -7,7 +7,7 @@ RUN set -e \
 
 RUN set -e \
       && apt-get -y update \
-      && apt-get -y install apt-transport-https git libcurl4-gnutls-dev libmariadb-client-lgpl-dev libpq-dev libsqlite3-dev libssl-dev libxml2-dev pandoc
+      && apt-get -y install apt-transport-https git libcurl4-gnutls-dev libmariadb-client-lgpl-dev libpq-dev librsvg2-bin libsqlite3-dev libssl-dev libxml2-dev pandoc
 
 RUN set -e \
       && grep '^DISTRIB_CODENAME' /etc/lsb-release \
