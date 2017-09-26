@@ -7,7 +7,7 @@ RUN set -e \
 
 RUN set -e \
       && apt-get -y update \
-      && apt-get -y install apt-transport-https git libcurl4-gnutls-dev libmariadb-client-lgpl-dev libpq-dev libsqlite3-dev libssl-dev libxml2-dev
+      && apt-get -y install apt-transport-https git libcurl4-gnutls-dev libmariadb-client-lgpl-dev libpq-dev libsqlite3-dev libssl-dev libxml2-dev pandoc
 
 RUN set -e \
       && grep '^DISTRIB_CODENAME' /etc/lsb-release \
@@ -23,7 +23,7 @@ RUN set -e \
 RUN set -e \
       && R -e "\
       update.packages(ask = FALSE, repos = '${CRAN_URL}'); \
-      pkgs <- c('dbplyr', 'devtools', 'docopt', 'doParallel', 'foreach', 'gridExtra', 'tidyverse'); \
+      pkgs <- c('dbplyr', 'devtools', 'docopt', 'doParallel', 'foreach', 'gridExtra', 'rmarkdown', 'tidyverse'); \
       install.packages(pkgs = pkgs, dependencies = TRUE, repos = '${CRAN_URL}'); \
       sapply(pkgs, require, character.only = TRUE);"
 
