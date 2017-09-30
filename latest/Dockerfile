@@ -27,4 +27,4 @@ RUN set -e \
       install.packages(pkgs = pkgs, dependencies = TRUE, repos = '${CRAN_URL}'); \
       sapply(pkgs, require, character.only = TRUE);"
 
-ENTRYPOINT ["R"]
+ENTRYPOINT ["/usr/bin/R"]

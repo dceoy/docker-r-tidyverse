@@ -6,3 +6,7 @@ services:
     build:
       context: latest
     image: dceoy/r-tidyverse:latest
+    user: ${UID}:${GID}
+    volumes:
+      - .:/work
+    working_dir: /work
