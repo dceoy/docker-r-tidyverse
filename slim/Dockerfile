@@ -23,7 +23,8 @@ RUN set -e \
 RUN set -e \
       && R -e "\
       update.packages(ask = FALSE, repos = '${CRAN_URL}'); \
-      pkgs <- c('dbplyr', 'devtools', 'docopt', 'doParallel', 'foreach', 'gridExtra', 'rmarkdown', 'tidyverse'); \
+      pkgs <- c('dbplyr', 'devtools', 'docopt', 'doParallel', 'foreach', 'gridExtra', \
+                'rmarkdown', 'tidyverse'); \
       install.packages(pkgs = pkgs, dependencies = TRUE, repos = '${CRAN_URL}'); \
       sapply(pkgs, require, character.only = TRUE);"
 
