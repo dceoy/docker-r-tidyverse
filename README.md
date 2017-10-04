@@ -15,5 +15,5 @@ $ docker pull dceoy/r-tidyverse
 Run a container
 
 ```sh
-$ docker container run dceoy/r-tidyverse --version
+$ docker container run --rm -it -v $(pwd):work -w /work -u $(id -u):$(id -g) dceoy/r-tidyverse
 ```
