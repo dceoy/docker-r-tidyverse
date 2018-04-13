@@ -8,5 +8,5 @@ services:
     image: dceoy/r-tidyverse:latest
     user: ${UID}:${GID}
     volumes:
-      - .:/work
+      - ${PWD}:/work
     working_dir: /work

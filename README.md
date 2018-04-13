@@ -12,8 +12,11 @@ Pull the image from [Docker Hub](https://hub.docker.com/r/dceoy/r-tidyverse/).
 $ docker pull dceoy/r-tidyverse
 ```
 
+Usage
+-----
+
 Run a container
 
 ```sh
-$ docker container run --rm -it -v $(pwd):work -w /work -u $(id -u):$(id -g) dceoy/r-tidyverse
+$ docker container run --rm -it -v ${PWD}:/work -w /work -u $(id -u):$(id -g) dceoy/r-tidyverse
 ```
