@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 ENV CRAN_URL https://cloud.r-project.org/
 
@@ -24,11 +24,12 @@ RUN set -e \
       && apt-get clean
 
 RUN set -e \
-      && R -e "\
-      update.packages(ask = FALSE, repos = '${CRAN_URL}'); \
-      pkgs <- c('dbplyr', 'devtools', 'docopt', 'doParallel', 'foreach', 'gridExtra', \
-                'rmarkdown', 'tidyverse'); \
-      install.packages(pkgs = pkgs, dependencies = TRUE, repos = '${CRAN_URL}'); \
-      sapply(pkgs, require, character.only = TRUE);"
+      && curl https://raw.githubusercontent.com/dceoy/clir/master/install.sh | bash
+
+ENV PATH ${HOME}/.clir/bin:${PATH}
+
+RUN set -e \
+      && clir install --devt=cran dbplyr devtools doParallel foreach gridExtra rmarkdown tidyverse \
+      && clir validate dbplyr devtools doParallel foreach gridExtra rmarkdown tidyverse
 
 ENTRYPOINT ["/usr/bin/R"]
