@@ -9,17 +9,7 @@ RUN set -e \
       && apt-get -y update \
       && apt-get -y install apt-transport-https git libcurl4-gnutls-dev \
                             libmariadb-client-lgpl-dev libpq-dev librsvg2-bin libsqlite3-dev \
-                            libssl-dev libxml2-dev pandoc
-
-RUN set -e \
-      && grep '^DISTRIB_CODENAME' /etc/lsb-release \
-        | cut -d = -f 2 \
-        | xargs -I {} echo "deb ${CRAN_URL}bin/linux/ubuntu {}/" \
-        | tee -a /etc/apt/sources.list \
-      && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 \
-      && apt-get -y update \
-      && apt-get -y upgrade \
-      && apt-get -y install r-base \
+                            libssl-dev libxml2-dev pandoc r-base \
       && apt-get -y autoremove \
       && apt-get clean
 
