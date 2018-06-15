@@ -1,8 +1,8 @@
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV R_LIBS_USER /root/.clir/r/library
-ENV PATH /root/.clir/bin:${PATH}
+
+ADD https://raw.githubusercontent.com/dceoy/clir/master/install.sh /tmp/install.sh
 
 RUN set -e \
       && ln -sf /bin/bash /bin/sh
@@ -20,7 +20,10 @@ RUN set -e \
       && rm -rf /var/lib/apt/lists/*
 
 RUN set -e \
-      && curl -sS https://raw.githubusercontent.com/dceoy/clir/master/install.sh | bash \
+      && bash /tmp/install.sh --root \
+      && rm -f /tmp/install.sh
+
+RUN set -e \
       && clir update \
       && clir install --devt=cran dbplyr doParallel foreach gridExtra rmarkdown tidyverse \
       && clir validate dbplyr doParallel foreach gridExtra rmarkdown tidyverse
