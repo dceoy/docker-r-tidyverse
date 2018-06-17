@@ -12,7 +12,7 @@ RUN set -e \
       && apt-get -y upgrade \
       && apt-get -y install --no-install-recommends --no-install-suggests \
                             apt-transport-https apt-utils curl g++ gcc gfortran git \
-                            libblas-dev libcurl4-openssl-dev liblapack-dev \
+                            libblas-dev libcurl4-gnutls-dev liblapack-dev \
                             libmariadb-client-lgpl-dev libpq-dev librsvg2-bin libsqlite3-dev \
                             libssh2-1-dev libssl-dev libxml2-dev pandoc r-base \
       && apt-get -y autoremove \
