@@ -9,7 +9,7 @@ RUN set -e \
 
 RUN set -e \
       && apt-get -y update \
-      && apt-get -y upgrade \
+      && apt-get -y dist-upgrade \
       && apt-get -y install --no-install-recommends --no-install-suggests \
                             apt-transport-https apt-utils curl g++ gcc gfortran git \
                             libblas-dev libcurl4-gnutls-dev liblapack-dev \
