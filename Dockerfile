@@ -32,7 +32,7 @@ RUN set -e \
 
 RUN set -e \
       && clir update \
-      && clir install --devt=cran dbplyr doParallel foreach gridExtra rmarkdown tidyverse \
-      && clir validate dbplyr doParallel foreach gridExtra rmarkdown tidyverse
+      && clir install --devt=cran dbplyr doParallel foreach ggpubr rmarkdown tidyverse \
+      && clir validate dbplyr doParallel foreach ggpubr rmarkdown tidyverse
 
 ENTRYPOINT ["/usr/bin/R"]
