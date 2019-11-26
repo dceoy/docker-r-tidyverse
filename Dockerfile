@@ -19,9 +19,8 @@ RUN set -e \
       && apt-get -y dist-upgrade \
       && apt-get -y install --no-install-recommends --no-install-suggests \
         curl g++ gcc gfortran git make libblas-dev libcurl4-gnutls-dev \
-        liblapack-dev libmariadb-client-lgpl-dev libpq-dev librsvg2-bin \
-        libsqlite3-dev libssh2-1-dev libssl-dev libxml2-dev locales pandoc \
-        r-base \
+        liblapack-dev libmariadb-client-lgpl-dev libpq-dev libsqlite3-dev \
+        libssh2-1-dev libssl-dev libxml2-dev locales pandoc r-base \
       && apt-get -y autoremove \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/*
