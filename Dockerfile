@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY --from=dceoy/clir:latest /usr/local /usr/local
 
 RUN set -e \
-      && ln -sf /bin/bash /bin/sh
+      && ln -sf bash /bin/sh
 
 RUN set -e \
       && apt-get -y update \
