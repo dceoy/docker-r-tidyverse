@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 
-COPY --from=dceoy/clir:latest /usr/local /usr/local
+ADD https://raw.githubusercontent.com/dceoy/clir/master/install_clir.sh /tmp/install_clir.sh
 
 RUN set -e \
       && ln -sf bash /bin/sh
@@ -22,6 +22,10 @@ RUN set -e \
 RUN set -e \
       && locale-gen en_US.UTF-8 \
       && update-locale
+
+RUN set -e \
+      && bash /tmp/install_clir.sh --root \
+      && rm -f /tmp/install_clir.sh
 
 RUN set -e \
       && clir update \
