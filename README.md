@@ -3,13 +3,15 @@ docker-r-tidyverse
 
 Dockerfile for R with tidyverse
 
+[![CI to Docker Hub](https://github.com/dceoy/docker-r-tidyverse/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/dceoy/docker-r-tidyverse/actions/workflows/docker-publish.yml)
+
 Docker image
 ------------
 
 Pull the image from [Docker Hub](https://hub.docker.com/r/dceoy/r-tidyverse/).
 
 ```sh
-$ docker pull dceoy/r-tidyverse
+$ docker image pull dceoy/r-tidyverse
 ```
 
 Usage
