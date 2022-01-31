@@ -12,9 +12,10 @@ RUN set -e \
       && apt-get -y dist-upgrade \
       && apt-get -y install --no-install-recommends --no-install-suggests \
         apt-transport-https apt-utils ca-certificates curl g++ gcc gfortran \
-        git make libblas-dev libcurl4-gnutls-dev libgit2-dev liblapack-dev \
-        libmariadb-dev libiodbc2-dev libpq-dev libsqlite3-dev libssh-dev \
-        libssl-dev libxml2-dev locales pandoc pkg-config r-base \
+        git make libblas-dev libcurl4-gnutls-dev libfontconfig1-dev \
+        libgit2-dev liblapack-dev libmariadb-dev libiodbc2-dev libpq-dev \
+        libsqlite3-dev libssh-dev libssl-dev libxml2-dev locales pandoc \
+        pkg-config r-base \
       && apt-get -y autoremove \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/*
