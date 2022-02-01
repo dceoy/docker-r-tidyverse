@@ -11,8 +11,8 @@ RUN set -e \
       && apt-get -y update \
       && apt-get -y dist-upgrade \
       && apt-get -y install --no-install-recommends --no-install-suggests \
-        apt-transport-https apt-utils ca-certificates curl g++ gcc gfortran \
-        git make libblas-dev libcurl4-gnutls-dev libfontconfig1-dev \
+        apt-transport-https apt-utils ca-certificates cmake curl g++ gcc \
+        gfortran git make libblas-dev libcurl4-gnutls-dev libfontconfig1-dev \
         libfreetype6-dev libfribidi-dev libgit2-dev libharfbuzz-dev \
         libiodbc2-dev libjpeg-dev liblapack-dev libmariadb-dev libpng-dev \
         libpq-dev libsqlite3-dev libssh-dev libssl-dev libtiff5-dev \
@@ -31,7 +31,8 @@ RUN set -e \
 
 RUN set -e \
       && clir update \
-      && clir install --devt=cran dbplyr doParallel foreach ggpubr rmarkdown tidyverse \
+      && clir install --devt=cran \
+        dbplyr doParallel foreach ggpubr rmarkdown tidyverse \
       && clir validate dbplyr doParallel foreach ggpubr rmarkdown tidyverse
 
 ENTRYPOINT ["/usr/bin/R"]
